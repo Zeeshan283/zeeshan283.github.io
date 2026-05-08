@@ -1,4 +1,4 @@
-a<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="dark">
 
 <head>
@@ -541,6 +541,11 @@ a<!DOCTYPE html>
         }
 
         /* Code Editor Window (Hero Right) */
+        .hero-profile {
+            min-width: 0;
+            width: 100%;
+        }
+
         .code-window {
             background: rgba(13, 17, 23, 0.98);
             background: rgba(13, 17, 23, 0.85);
@@ -550,6 +555,7 @@ a<!DOCTYPE html>
             box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
             font-family: 'Courier New', Courier, monospace;
             backdrop-filter: blur(16px);
+            max-width: 100%;
         }
 
         .code-header {
@@ -1488,36 +1494,10 @@ a<!DOCTYPE html>
                             </div>
                             <div class="code-title">ZeeshanAhmad.php</div>
                         </div>
-                        <div class="code-body"><span class="c-kw">&lt;?php</span>
-
-                            <span class="c-kw">namespace</span> <span class="c-class">App\Architects</span>;
-
-                            <span class="c-kw">use</span> <span class="c-class">Illuminate\Support\Facades\Log</span>;
-
-                            <span class="c-cmt">/**
-                                * Senior Full Stack Engineer
-                                * Specialized in Laravel & Fintech
-                                */</span>
-                            <span class="c-kw">class</span> <span class="c-class">ZeeshanAhmad</span> <span
-                                class="c-kw">implements</span> <span class="c-class">FintechDeveloper</span>
-                            {
-                            <span class="c-kw">public</span> <span class="c-kw">function</span> <span
-                                class="c-func">executeDailyTransactions</span>(): <span class="c-kw">void</span>
-                            {
-                            <span class="c-var">$transactions</span> = <span class="c-class">Queue</span>::<span
-                                class="c-func">pop</span>(<span class="c-num">10000</span>);
-
-                            <span class="c-kw">foreach</span> (<span class="c-var">$transactions</span> <span
-                                class="c-kw">as</span> <span class="c-var">$tx</span>) {
-                            <span class="c-var">$tx</span>-&gt;<span class="c-func">processSecurelyWith</span>(<span
-                                class="c-str">'AES-256'</span>);
-                            }
-
-                            <span class="c-class">Log</span>::<span class="c-func">info</span>(<span class="c-str">'Zero
-                                downtime achieved. SLA 99.9%'</span>);
-                            }
-                            }
-                        </div>
+                        <pre class="code-body" id="heroCodeBlock" style="margin:0;"></pre>
+                        <script>
+                            document.getElementById('heroCodeBlock').innerHTML = "&lt;?php\n\n<span class=\"c-kw\">namespace</span> <span class=\"c-class\">App\\Architects</span>;\n\n<span class=\"c-kw\">use</span> <span class=\"c-class\">Illuminate\\Support\\Facades\\Log</span>;\n\n<span class=\"c-cmt\">/**\n * Senior Full Stack Engineer\n * Specialized in Laravel &amp; Fintech\n */</span>\n<span class=\"c-kw\">class</span> <span class=\"c-class\">ZeeshanAhmad</span> <span class=\"c-kw\">implements</span> <span class=\"c-class\">FintechDeveloper</span>\n{\n    <span class=\"c-kw\">public</span> <span class=\"c-kw\">function</span> <span class=\"c-func\">executeDailyTransactions</span>(): <span class=\"c-kw\">void</span>\n    {\n        <span class=\"c-var\">$transactions</span> = <span class=\"c-class\">Queue</span>::<span class=\"c-func\">pop</span>(<span class=\"c-num\">10000</span>);\n        \n        <span class=\"c-kw\">foreach</span> (<span class=\"c-var\">$transactions</span> <span class=\"c-kw\">as</span> <span class=\"c-var\">$tx</span>) {\n            <span class=\"c-var\">$tx</span>-&gt;<span class=\"c-func\">processSecurelyWith</span>(<span class=\"c-str\">'AES-256'</span>);\n        }\n        \n        <span class=\"c-class\">Log</span>::<span class=\"c-func\">info</span>(<span class=\"c-str\">'Zero downtime achieved. SLA 99.9%'</span>);\n    }\n}";
+                        </script>
                     </div>
                 </aside>
             </div>
