@@ -1426,10 +1426,10 @@
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="#expertise" class="nav-link">Expertise</a></li>
-                    <li><a href="#tech" class="nav-link">Stack</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
-                    <li><a href="#contact" class="btn btn-primary" aria-label="Hire Me">Hire Me</a></li>
+                    <li><a href="#articles" class="nav-link" style="color: var(--accent); font-weight: 600;">Case Studies</a></li>
+                    <li><a href="/services/dedicated-laravel-developer.html" class="btn btn-primary" aria-label="Hire Dedicated Developer">Hire Dedicated Dev</a></li>
                 </ul>
             </nav>
             <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false"
@@ -1483,9 +1483,11 @@
                         <a href="#contact" class="btn btn-primary btn-lg" aria-label="Get in Touch via Contact Form">
                             <i class="fas fa-envelope" aria-hidden="true"></i> Get in Touch
                         </a>
-                        <a href="https://linkedin.com/in/zeeshan283" target="_blank" rel="noopener noreferrer"
-                            class="btn btn-secondary btn-lg" aria-label="Visit LinkedIn Profile">
-                            <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                        <a href="/services/dedicated-laravel-developer.html" class="btn btn-secondary btn-lg" aria-label="Hire Dedicated Developer">
+                            <i class="fas fa-laptop-code" aria-hidden="true"></i> Hire Dedicated Dev
+                        </a>
+                        <a href="#articles" class="btn btn-secondary btn-lg" aria-label="View Case Studies">
+                            <i class="fas fa-book-open" aria-hidden="true"></i> Case Studies
                         </a>
                         <a href="https://github.com/Zeeshan283" target="_blank" rel="noopener noreferrer"
                             class="btn btn-secondary btn-lg" aria-label="Visit GitHub Profile">
@@ -1706,6 +1708,7 @@
                                     <span class="pstat-lbl">Role OS</span>
                                 </div>
                             </div>
+                            <a href="/case-studies/managed-marketplace.html" class="btn btn-primary" style="margin-top: 1.5rem; justify-content: center;">Read Case Study <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
 
@@ -1760,6 +1763,7 @@
                                     <span class="pstat-lbl">Cache efficiency</span>
                                 </div>
                             </div>
+                            <a href="/case-studies/fintech-scaling.html" class="btn btn-primary" style="margin-top: 1.5rem; justify-content: center;">Read Case Study <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
 
@@ -2020,48 +2024,46 @@
             </div>
         </section>
 
-        <section id="articles" class="section-padding">
+        <section id="articles" class="section-padding" style="background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 50%); border-top: 1px solid var(--border-glass);">
             <div class="container">
-                <header class="section-header animate-on-scroll">
-                    <span class="section-eyebrow">Insights</span>
-                    <h2>Laravel &amp; PHP Developer Case Studies</h2>
-                    <p>Technical deep dives on real-world Laravel architecture, PHP performance optimization, and
-                        backend engineering decisions made in production fintech environments.</p>
+                <header class="section-header animate-on-scroll" style="text-align: center; margin: 0 auto 4rem auto;">
+                    <span class="section-eyebrow" style="font-size: 1rem;">Deep Dives</span>
+                    <h2 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem; letter-spacing: -0.03em;">Featured Case Studies</h2>
+                    <p style="font-size: 1.15rem; max-width: 600px; margin: 0 auto;">In-depth architectural breakdowns of high-traffic production systems I've engineered.</p>
                 </header>
 
-                <div class="projects-grid">
-                    <article class="project-card glass-card animate-on-scroll">
-                        <div class="project-body">
-                            <div class="project-tags" aria-label="Article Tags">
-                                <span class="badge badge-accent">Laravel</span>
+                <div style="display: flex; flex-direction: column; gap: 4rem;">
+                    <!-- Case Study 1 -->
+                    <div class="glass-card animate-on-scroll" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; border-radius: var(--radius-xl);">
+                        <div style="padding: 4rem; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="project-tags" aria-label="Article Tags" style="margin-bottom: 1.5rem;">
+                                <span class="badge badge-accent">Fintech</span>
                                 <span class="badge badge-success">Architecture</span>
                             </div>
-                            <h3 style="margin-top: 1rem;">Optimized Laravel Queues for 10K Daily Transactions</h3>
-                            <p>An extensive technical breakdown of how to scale Laravel Horizon, prevent race conditions
-                                in payment Webhooks, and configure Redis for zero-downtime queue workers in a fintech
-                                environment.</p>
-                            <a href="/case-studies/fintech-scaling.html" class="btn btn-secondary"
-                                style="margin-top: auto; display: inline-flex; width: max-content;">Read Case Study <i
-                                    class="fas fa-arrow-right"></i></a>
+                            <h3 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1.5rem; line-height: 1.2;">Optimized Laravel Queues for 10K Daily Transactions</h3>
+                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2.5rem;">An extensive technical breakdown of how to scale Laravel Horizon, prevent race conditions in payment Webhooks, and configure Redis for zero-downtime queue workers.</p>
+                            <a href="/case-studies/fintech-scaling.html" class="btn btn-primary btn-lg" style="width: max-content; padding: 1rem 2.5rem; font-size: 1.1rem; box-shadow: 0 0 32px rgba(59, 130, 246, 0.3);">Read Full Case Study <i class="fas fa-arrow-right"></i></a>
                         </div>
-                    </article>
+                        <div style="position: relative; min-height: 400px; background: url('/images/fintech-hero.png') center/cover no-repeat; border-left: 1px solid var(--border-glass);">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to right, var(--bg-surface-glass), transparent 50%);"></div>
+                        </div>
+                    </div>
 
-                    <article class="project-card glass-card animate-on-scroll delay-100">
-                        <div class="project-body">
-                            <div class="project-tags" aria-label="Article Tags">
-                                <span class="badge"
-                                    style="background: var(--warning-bg); color: var(--warning);">API</span>
-                                <span class="badge badge-success">B2B</span>
-                            </div>
-                            <h3 style="margin-top: 1rem;">Architected a Custom B2B Delivery API</h3>
-                            <p>A step-by-step guide to building a resilient, rate-limited RESTful API that handles
-                                real-time inventory synchronization across multi-vendor POS systems without overwhelming
-                                the database.</p>
-                            <a href="/case-studies/managed-marketplace.html" class="btn btn-secondary"
-                                style="margin-top: auto; display: inline-flex; width: max-content;">Read Case Study <i
-                                    class="fas fa-arrow-right"></i></a>
+                    <!-- Case Study 2 -->
+                    <div class="glass-card animate-on-scroll delay-100" style="display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; border-radius: var(--radius-xl);">
+                        <div style="position: relative; min-height: 400px; background: url('/images/marketplace-hero.png') center/cover no-repeat; border-right: 1px solid var(--border-glass);">
+                            <div style="position: absolute; inset: 0; background: linear-gradient(to left, var(--bg-surface-glass), transparent 50%);"></div>
                         </div>
-                    </article>
+                        <div style="padding: 4rem; display: flex; flex-direction: column; justify-content: center;">
+                            <div class="project-tags" aria-label="Article Tags" style="margin-bottom: 1.5rem;">
+                                <span class="badge" style="background: var(--warning-bg); color: var(--warning);">Logistics</span>
+                                <span class="badge badge-success">Marketplace</span>
+                            </div>
+                            <h3 style="font-size: 2.25rem; font-family: var(--font-heading); margin-bottom: 1.5rem; line-height: 1.2;">Architected a Multi-Role Managed Marketplace</h3>
+                            <p style="font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2.5rem;">A deep dive into building a real-time, multi-role fulfillment platform with Laravel WebSockets, Vue.js, and automated Stripe split payments.</p>
+                            <a href="/case-studies/managed-marketplace.html" class="btn btn-primary btn-lg" style="width: max-content; padding: 1rem 2.5rem; font-size: 1.1rem; box-shadow: 0 0 32px rgba(59, 130, 246, 0.3);">Read Full Case Study <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

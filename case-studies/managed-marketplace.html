@@ -1426,10 +1426,10 @@
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="/index.html#expertise" class="nav-link">Expertise</a></li>
-                    <li><a href="/index.html#tech" class="nav-link">Stack</a></li>
                     <li><a href="/index.html#projects" class="nav-link">Projects</a></li>
                     <li><a href="/index.html#experience" class="nav-link">Experience</a></li>
-                    <li><a href="/index.html#contact" class="btn btn-primary" aria-label="Hire Me">Hire Me</a></li>
+                    <li><a href="/index.html#articles" class="nav-link" style="color: var(--accent); font-weight: 600;">Case Studies</a></li>
+                    <li><a href="/services/dedicated-laravel-developer.html" class="btn btn-primary" aria-label="Hire Dedicated Developer">Hire Dedicated Dev</a></li>
                 </ul>
             </nav>
             <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false"
@@ -1441,74 +1441,91 @@
         </div>
     </header>
 
-    <main id="case-study" style="padding-top: calc(var(--nav-height) + 4rem);">
-    <div class="container">
-        <header class="section-header" style="margin-top: 2rem;">
-            <span class="section-eyebrow">Case Study</span>
-            <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem;">Managed Logistics Architecture for Marketplaces</h1>
-            <p style="font-size: 1.125rem; max-width: 800px; color: var(--text-secondary);">Building a real-time, multi-role fulfillment platform for Quick Surprise.</p>
-        </header>
+    <main id="case-study" style="padding-top: calc(var(--nav-height) + 2rem);">
+        <section style="position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 4rem;">
+            <div style="position: absolute; inset: 0; background: url('/images/marketplace-hero.png') center/cover no-repeat; opacity: 0.4; filter: blur(4px) brightness(0.7);"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--bg-base));"></div>
+            <div class="container" style="position: relative; z-index: 10; text-align: center;">
+                <span class="badge badge-warning" style="margin-bottom: 1.5rem; font-size: 0.9rem; padding: 0.5rem 1rem; background: var(--warning-bg); color: var(--warning);">Marketplace Logistics</span>
+                <h1 style="font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -0.04em; margin-bottom: 1.5rem; text-shadow: 0 4px 24px rgba(0,0,0,0.8);">Architecting a Multi-Role Marketplace</h1>
+                <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--text-primary); opacity: 0.9;">Building a real-time, multi-role fulfillment platform with Laravel WebSockets and Stripe Connect.</p>
+            </div>
+        </section>
 
-        <div class="glass-card" style="padding: 3rem; margin-bottom: 3rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div class="container" style="max-width: 1000px;">
+            <div class="glass-card" style="padding: 2.5rem; margin-bottom: 4rem; display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between; border-top: 4px solid var(--warning);">
                 <div>
-                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Role</h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">Lead Full Stack Engineer</p>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Role</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Lead Full Stack Developer</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Tech Stack</h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">Laravel, WebSockets, Vue.js, Stripe Connect</p>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Tech Stack</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Laravel WebSockets, Vue.js, Stripe Connect</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Focus</h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">Real-time Sync, Multi-vendor Logistics</p>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Focus</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Real-Time Sync, Split Payments</p>
                 </div>
             </div>
 
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">Situation</h2>
-                <p>The client was launching a new marketplace concept that required seamless coordination between customers, independent sellers, and delivery riders. The lack of real-time visibility into order states caused confusion, and manual payment splits between vendors and the platform were creating significant accounting overhead.</p>
-            </div>
+            <article style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-exclamation-circle" style="color: var(--warning);"></i> The Situation
+                </h2>
+                <p style="margin-bottom: 3rem;">A logistics client needed to replace their fragmented delivery system with a unified marketplace. The existing system relied on manual phone calls and disjointed third-party apps to coordinate customers, vendors, and delivery riders. This resulted in extreme latency, missed orders, and complex, manual financial reconciliation at the end of each month.</p>
 
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">Task</h2>
-                <p>Architect a multi-role managed logistics system from the ground up. The platform needed to provide instant order updates to all parties, automate complex split payments, and offer a scalable API for mobile applications used by delivery riders.</p>
-            </div>
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-bullseye" style="color: var(--warning);"></i> The Task
+                </h2>
+                <p style="margin-bottom: 3rem;">I was tasked with building a centralized, multi-tenant marketplace platform from scratch. The system needed three distinct real-time interfaces (Customer, Vendor, Rider) that synchronized instantly, alongside an automated financial engine that could split payments across parties automatically upon delivery confirmation.</p>
 
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">Action</h2>
-                <ul class="timeline-bullets" style="padding-left: 0;">
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>Multi-Role Event Broadcasting:</strong> Engineered a WebSocket-based event architecture utilizing Laravel Echo and Redis to broadcast real-time order state mutations to customers, sellers, and riders simultaneously.</li>
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>Automated Settlement Logic:</strong> Integrated Stripe Connect to automatically route funds, handling complex commission splits and payout schedules without human intervention.</li>
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>Rider Logistics API:</strong> Built a lightweight, rate-limited REST API specifically for the rider mobile application to track GPS locations and update delivery statuses efficiently.</li>
-                </ul>
-            </div>
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-tools" style="color: var(--purple);"></i> The Action
+                </h2>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 3rem;">
+                    <ul class="timeline-bullets" style="padding-left: 0; gap: 2rem;">
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">WebSockets Architecture</strong>
+                            Engineered a custom Laravel WebSockets server to push order status updates and live GPS tracking coordinates instantly to Vue.js frontends, completely removing the need for long-polling.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Stripe Connect Integration</strong>
+                            Implemented Stripe Connect to handle complex split payments. Funds were automatically held in escrow upon order placement and instantly routed to the vendor and rider (minus platform fees) when the delivery was marked complete.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Multi-Role OS</strong>
+                            Developed separate, optimized Vue.js SPA dashboards for each user type, utilizing Laravel Sanctum for API token authentication and role-based access control (RBAC).
+                        </li>
+                    </ul>
+                </div>
 
-            <div>
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--success);">Result</h2>
-                <div class="hero-stats-card" style="margin: 1.5rem 0; padding: 1.5rem; background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2);">
-                    <div class="stat-item">
-                        <span class="stat-num" style="color: var(--success);">+30%</span>
-                        <span class="stat-lbl">Operational Efficiency</span>
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-chart-line" style="color: var(--success);"></i> The Result
+                </h2>
+                <p style="margin-bottom: 2rem;">The platform launched successfully, processing over 5,000 daily sales within its first quarter. Order fulfillment efficiency increased by 30%, and the automated Stripe integration eliminated 35 hours of manual financial reporting previously required each month.</p>
+                
+                <div class="hero-stats-card" style="margin: 0 auto 4rem auto; padding: 2rem; background: rgba(245, 158, 11, 0.05); border: 1px solid rgba(245, 158, 11, 0.2); width: 100%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--warning); font-size: 3rem;">5K+</span>
+                        <span class="stat-lbl">Daily Sales</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-num" style="color: var(--success);">0%</span>
-                        <span class="stat-lbl">Settlement Errors</span>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--warning); font-size: 3rem;">+30%</span>
+                        <span class="stat-lbl">Efficiency Gain</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-num" style="color: var(--success);">5K+</span>
-                        <span class="stat-lbl">Daily Sales Managed</span>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--warning); font-size: 3rem;">-35h</span>
+                        <span class="stat-lbl">Manual Accounting</span>
                     </div>
                 </div>
-                <p>The automated split payment integration eliminated manual accounting errors (0% settlement errors) while the real-time tracking dashboard reduced customer support inquiries by 40%. The robust architecture now seamlessly manages the fulfillment lifecycle for over 5,000 daily sales.</p>
+            </article>
+
+            <div style="text-align: center; margin-bottom: 6rem; padding-top: 4rem; border-top: 1px solid var(--border-glass);">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Need a complex marketplace architecture?</h3>
+                <a href="/index.html#contact" class="btn btn-primary btn-lg" style="box-shadow: 0 0 32px rgba(59,130,246,0.4); padding: 1rem 3rem;">Let's Discuss Architecture</a>
             </div>
         </div>
-
-        <div style="text-align: center; margin-bottom: 4rem;">
-            <a href="/index.html#contact" class="btn btn-primary btn-lg">Hire Me for Marketplace Architecture</a>
-        </div>
-    </div>
-</main>
+    </main>
 
     <footer class="site-footer">
         <div class="container">

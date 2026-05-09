@@ -1426,10 +1426,10 @@
             <nav aria-label="Main Navigation">
                 <ul class="nav-menu" id="nav-menu">
                     <li><a href="/index.html#expertise" class="nav-link">Expertise</a></li>
-                    <li><a href="/index.html#tech" class="nav-link">Stack</a></li>
                     <li><a href="/index.html#projects" class="nav-link">Projects</a></li>
                     <li><a href="/index.html#experience" class="nav-link">Experience</a></li>
-                    <li><a href="/index.html#contact" class="btn btn-primary" aria-label="Hire Me">Hire Me</a></li>
+                    <li><a href="/index.html#articles" class="nav-link" style="color: var(--accent); font-weight: 600;">Case Studies</a></li>
+                    <li><a href="/services/dedicated-laravel-developer.html" class="btn btn-primary" aria-label="Hire Dedicated Developer">Hire Dedicated Dev</a></li>
                 </ul>
             </nav>
             <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false"
@@ -1441,75 +1441,95 @@
         </div>
     </header>
 
-    <main id="case-study" style="padding-top: calc(var(--nav-height) + 4rem);">
-    <div class="container">
-        <header class="section-header" style="margin-top: 2rem;">
-            <span class="section-eyebrow">Case Study</span>
-            <h1 style="font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 1.5rem;">Fintech Scaling: Laravel High-Traffic Optimization</h1>
-            <p style="font-size: 1.125rem; max-width: 800px; color: var(--text-secondary);">Architecting secure, high-performance payment infrastructure for ACE Money Transfer.</p>
-        </header>
+    <main id="case-study" style="padding-top: calc(var(--nav-height) + 2rem);">
+        <section style="position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 4rem;">
+            <div style="position: absolute; inset: 0; background: url('/images/fintech-hero.png') center/cover no-repeat; opacity: 0.4; filter: blur(4px) brightness(0.7);"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--bg-base));"></div>
+            <div class="container" style="position: relative; z-index: 10; text-align: center;">
+                <span class="badge badge-accent" style="margin-bottom: 1.5rem; font-size: 0.9rem; padding: 0.5rem 1rem;">Fintech Architecture</span>
+                <h1 style="font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -0.04em; margin-bottom: 1.5rem; text-shadow: 0 4px 24px rgba(0,0,0,0.8);">Scaling Laravel for 10K+ Daily Transactions</h1>
+                <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--text-primary); opacity: 0.9;">Architecting secure, high-performance payment infrastructure for ACE Money Transfer.</p>
+            </div>
+        </section>
 
-        <div class="glass-card" style="padding: 3rem; margin-bottom: 3rem;">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+        <div class="container" style="max-width: 1000px;">
+            <div class="glass-card" style="padding: 2.5rem; margin-bottom: 4rem; display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between; border-top: 4px solid var(--accent);">
                 <div>
-                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Role</h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">Senior Fintech Architect</p>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Role</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Senior Fintech Architect</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Tech Stack</h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">Laravel, Redis, MySQL, Stripe</p>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Tech Stack</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Laravel 10, Redis, MySQL 8, Stripe</p>
                 </div>
                 <div>
-                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 0.5rem;">Compliance</h3>
-                    <p style="font-weight: 600; color: var(--text-primary);">GDPR, PCI-DSS, OWASP</p>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Compliance</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">GDPR, PCI-DSS, OWASP</p>
                 </div>
             </div>
 
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">Situation</h2>
-                <p>The client was experiencing rapid growth but faced API latency issues during peak traffic. They were losing nearly 5% of transactions due to timeouts and database deadlocks. Furthermore, as a fintech handling cross-border payments, they needed to ensure strict compliance with international security standards like GDPR and PCI-DSS.</p>
-            </div>
+            <article style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-exclamation-circle" style="color: var(--warning);"></i> The Situation
+                </h2>
+                <p style="margin-bottom: 3rem;">The client was experiencing rapid growth but faced severe API latency issues during peak traffic periods. They were losing nearly 5% of transactions due to timeouts, database deadlocks, and race conditions in payment webhooks. Furthermore, as a fintech handling cross-border payments, they needed to ensure strict compliance with international security standards like GDPR and PCI-DSS, which the legacy system lacked.</p>
 
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">Task</h2>
-                <p>My goal was to architect a secure, scalable Laravel infrastructure capable of processing 10,000+ daily transactions reliably. This required eliminating API bottlenecks, ensuring zero-downtime deployments, and implementing rigorous data protection mechanisms for sensitive financial data.</p>
-            </div>
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-bullseye" style="color: var(--accent);"></i> The Task
+                </h2>
+                <p style="margin-bottom: 3rem;">My objective was to re-architect a secure, scalable Laravel infrastructure capable of processing 10,000+ daily transactions flawlessly. This required eliminating API bottlenecks, migrating to a zero-downtime deployment pipeline, and implementing rigorous AES-256 data protection mechanisms for sensitive financial records—all without disrupting live operations.</p>
 
-            <div style="margin-bottom: 2.5rem;">
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--accent);">Action</h2>
-                <ul class="timeline-bullets" style="padding-left: 0;">
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>Queue Optimization:</strong> Implemented Redis-backed Laravel Horizon queues to process payment webhooks asynchronously, preventing race conditions and HTTP timeouts.</li>
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>Security &amp; Compliance:</strong> Applied AES-256 payload encryption for all PII and financial records at rest. Enforced OAuth 2.0 and JWT for stateless, secure API authentication.</li>
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>Database Tuning:</strong> Restructured the MySQL database with advanced indexing and query optimization, resolving deadlocks and N+1 query issues.</li>
-                    <li style="margin-bottom: 1rem; padding-left: 1.5rem; position: relative;"><strong>High Availability:</strong> Set up a multi-gateway failover system (Stripe &amp; PayPal) to ensure transactions would always succeed even if one provider experienced downtime.</li>
-                </ul>
-            </div>
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-tools" style="color: var(--purple);"></i> The Action
+                </h2>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 3rem;">
+                    <ul class="timeline-bullets" style="padding-left: 0; gap: 2rem;">
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Queue Optimization & Horizon</strong>
+                            Implemented Redis-backed Laravel Horizon queues to process incoming payment webhooks asynchronously. This completely removed HTTP timeouts and prevented race conditions during simultaneous webhook deliveries.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Military-Grade Security</strong>
+                            Applied AES-256 payload encryption for all PII and financial records at rest using Laravel's encryption services. Enforced OAuth 2.0 and stateless JWT for secure API authentication.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Database Tuning</strong>
+                            Restructured the MySQL database, adding strategic composite indexes and fixing N+1 query problems via Eloquent eager loading, which eliminated database deadlocks entirely.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Multi-Gateway Failover</strong>
+                            Engineered a custom payment routing service that acts as a failover system between Stripe and PayPal, ensuring transactions succeed even during third-party outages.
+                        </li>
+                    </ul>
+                </div>
 
-            <div>
-                <h2 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--success);">Result</h2>
-                <div class="hero-stats-card" style="margin: 1.5rem 0; padding: 1.5rem; background: rgba(16, 185, 129, 0.05); border-color: rgba(16, 185, 129, 0.2);">
-                    <div class="stat-item">
-                        <span class="stat-num" style="color: var(--success);">0.01%</span>
-                        <span class="stat-lbl">Failed Transactions</span>
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-chart-line" style="color: var(--success);"></i> The Result
+                </h2>
+                <p style="margin-bottom: 2rem;">By entirely restructuring the queue system and database layer, the platform successfully scaled to handle over 10,000 daily transactions. Failed transactions were decimated from 5% to 0.01%, directly recovering substantial revenue. The system now boasts a 99.9% uptime SLA with an API latency of under 100ms.</p>
+                
+                <div class="hero-stats-card" style="margin: 0 auto 4rem auto; padding: 2rem; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); width: 100%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--success); font-size: 3rem;">0.01%</span>
+                        <span class="stat-lbl">Failure Rate</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-num" style="color: var(--success);">10K+</span>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--success); font-size: 3rem;">10K+</span>
                         <span class="stat-lbl">Daily Orders</span>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-num" style="color: var(--success);">&lt;100ms</span>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--success); font-size: 3rem;">&lt;100ms</span>
                         <span class="stat-lbl">API Latency</span>
                     </div>
                 </div>
-                <p>By restructuring the queue system and database layer, the platform successfully scaled to handle 10,000+ daily transactions with an API latency of under 100ms. Failed transactions were reduced from 5% to just 0.01%, directly translating to significant revenue recovery and a flawless customer experience.</p>
+            </article>
+
+            <div style="text-align: center; margin-bottom: 6rem; padding-top: 4rem; border-top: 1px solid var(--border-glass);">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Need similar scaling for your platform?</h3>
+                <a href="/index.html#contact" class="btn btn-primary btn-lg" style="box-shadow: 0 0 32px rgba(59,130,246,0.4); padding: 1rem 3rem;">Let's Discuss Architecture</a>
             </div>
         </div>
-
-        <div style="text-align: center; margin-bottom: 4rem;">
-            <a href="/index.html#contact" class="btn btn-primary btn-lg">Hire Me for Fintech Architecture</a>
-        </div>
-    </div>
-</main>
+    </main>
 
     <footer class="site-footer">
         <div class="container">
