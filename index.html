@@ -1437,6 +1437,23 @@
                 animation: none !important;
             }
         }
+        
+        /* Dropdown styles */
+        .has-dropdown:hover .dropdown-menu {
+            display: flex !important;
+        }
+        .dropdown-menu a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            padding: 0.6rem 1rem;
+            border-radius: var(--radius-md);
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .dropdown-menu a:hover {
+            color: var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
     </style>
 </head>
 
@@ -1451,6 +1468,7 @@
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#articles" class="nav-link" style="color: var(--accent); font-weight: 600;">Case Studies</a></li>
+                    <li><a href="javascript:void(0)" onclick="document.getElementById('services-modal').style.display='flex'" class="nav-link">Services</a></li>
                     <li><a href="/services/dedicated-laravel-developer.html" class="btn btn-primary" aria-label="Hire Dedicated Developer">Hire Dedicated Dev</a></li>
                 </ul>
             </nav>
@@ -2257,6 +2275,172 @@
             </div>
         </div>
     </footer>
+
+    <!-- Services Overlay Modal -->
+    <div id="services-modal" style="position: fixed; inset: 0; background: rgba(3, 3, 5, 0.95); backdrop-filter: blur(20px); z-index: 1000; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;">
+        <button onclick="document.getElementById('services-modal').style.display='none'" style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; opacity: 0.6; hover:opacity: 1 transition: opacity 0.2s;">&times;</button>
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 3rem; background: linear-gradient(to right, #fff, #71717a); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Specialized Expertise</h2>
+            <div id="nav-services-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; text-align: left;">
+                <!-- NAV_DYNAMIC_LINKS_START -->
+                    <a href="/services/technical-seo-and-backend-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Technical Seo And Backend Developer</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/full-stack-laravel-react-developer-freelance.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Full Stack Laravel React Developer Freelance</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/php-backend-developer-for-mvp-launch.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Php Backend Developer For Mvp Launch</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/laravel-mvp-developer-for-hire.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Laravel Mvp Developer For Hire</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/senior-backend-developer-for-startups.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Senior Backend Developer For Startups</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/hire-react-and-laravel-developer-remote.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Hire React And Laravel Developer Remote</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/remote-laravel-10-expert.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Remote Laravel 10 Expert</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/freelance-php-backend-architect.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Freelance Php Backend Architect</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/hire-remote-senior-laravel-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Hire Remote Senior Laravel Developer</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/custom-e-commerce-backend-architect.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Custom E-commerce Backend Architect</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/managed-marketplace-backend-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Managed Marketplace Backend Developer</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/third-party-logistics-api-integration-php.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Third-party Logistics Api Integration Php</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/custom-payment-gateway-integration-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Custom Payment Gateway Integration Developer</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                    <a href="/services/laravel-api-integration-expert.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
+                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Laravel Api Integration Expert</h4>
+                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
+                </a>
+                <style>
+                    .service-card:hover { 
+                        background: rgba(255,255,255,0.05) !important; 
+                        border-color: rgba(99, 102, 241, 0.4) !important; 
+                        transform: translateY(-5px);
+                    }
+                </style>
+                <!-- NAV_DYNAMIC_LINKS_END -->
+            </div>
+        </div>
+    </div>
 
     <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
