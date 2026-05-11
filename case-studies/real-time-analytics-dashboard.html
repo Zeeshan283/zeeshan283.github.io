@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M4LE43DV89"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-M4LE43DV89');
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Analytics Dashboard | Case Study</title>
+    <meta name="description" content="Case study: Engineering a live analytics platform serving 5,000+ concurrent users with sub-50ms latency using Laravel, WebSockets, and Vue.js.">
+    <meta name="author" content="Zeeshan Ahmad">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+    <link rel="canonical" href="https://zeeshan-ahmad.dev/case-studies/real-time-analytics-dashboard.html">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <meta name="theme-color" content="#050505">
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+        content="Hire PHP Developer | Dedicated, Freelance & Offshore in Pakistan | Zeeshan Ahmad">
+    <meta property="og:description"
+        content="Looking to hire a dedicated PHP developer or a freelance PHP programmer? I am an offshore PHP developer in Pakistan available for remote Laravel & Vue.js projects.">
+    <meta property="og:url" content="https://zeeshan-ahmad.dev/case-studies/real-time-analytics-dashboard.html">
+    <meta property="og:image" content="https://zeeshan-ahmad.dev/og-image.jpg">
+    <meta property="og:site_name" content="Zeeshan Ahmad">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Hire PHP Developer | Dedicated, Freelance & Offshore in Pakistan">
+    <meta name="twitter:description"
+        content="Hiring a PHP developer remote? I'm an offshore PHP developer in Pakistan available for freelance and full stack contracts.">
+    <meta name="twitter:image" content="https://zeeshan-ahmad.dev/og-image.jpg">
+    <meta name="twitter:creator" content="@zeeshan283">
+    <meta name="google-site-verification" content="ka93nCOBcw_hSAKDuibFcfq_cqTjr3-Mhhp1BPU2bvM" />
+    <meta name="msvalidate.01" content="FBE0DEF255DF74BACAD5839E2E13F1E0" />
+
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Zeeshan Ahmad",
+      "url": "https://zeeshan-ahmad.dev",
+      "image": "https://zeeshan-ahmad.dev/profile.jpg",
+      "description": "Senior PHP Developer and Fintech Architect with 4+ years of expertise in payment systems, microservices, and high-performance APIs",
+      "jobTitle": "PHP & Laravel Full Stack Developer",
+      "worksFor": { "@type": "Organization", "name": "ACE Money Transfer" },
+      "sameAs": ["https://linkedin.com/in/zeeshan283","https://github.com/Zeeshan283","https://twitter.com/zeeshan283"],
+      "email": "zeeshan87135@gmail.com",
+      "telephone": "+92-314-7564992",
+      "knowsAbout": ["PHP Full Stack Development", "Laravel Architecture", "Frontend Development", "Backend Development", "Mobile App Development", "Cross-Platform Apps", "Vue.js", "React", "REST API", "Microservices", "MySQL", "Fintech Compliance", "PCI-DSS"]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Full Stack Web & Mobile Development",
+      "areaServed": ["US", "GB", "CA", "AU", "NZ", "IE"]
+    }
+    </script>
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Optimized Laravel Queues for 10K Daily Transactions",
+        "author": {
+          "@type": "Person",
+          "name": "Zeeshan Ahmad"
+        },
+        "url": "https://zeeshan-ahmad.dev/#articles",
+        "datePublished": "2026-05-08"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Architected a Custom B2B Delivery API",
+        "author": {
+          "@type": "Person",
+          "name": "Zeeshan Ahmad"
+        },
+        "url": "https://zeeshan-ahmad.dev/#articles",
+        "datePublished": "2026-05-08"
+      }
+    ]
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap">
+    </noscript>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* ==========================================================================
+           1. UTILITIES & VARIABLES
+           ========================================================================== */
+        :root {
+            /* Premium Dark Mode Colors */
+            --bg-base: #050505;
+            --bg-surface: #0a0a0c;
+            --bg-surface-glass: rgba(10, 10, 12, 0.7);
+            --bg-surface-light: #121217;
+            --bg-alternate: #08080a;
+
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-hover: rgba(255, 255, 255, 0.15);
+
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+            --accent-glow: rgba(59, 130, 246, 0.2);
+            --accent-secondary: #8b5cf6;
+            --accent-gradient: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+
+            --success: #10b981;
+            --success-bg: rgba(16, 185, 129, 0.1);
+            --warning: #f59e0b;
+            --warning-bg: rgba(245, 158, 11, 0.1);
+            --danger: #ef4444;
+            --danger-bg: rgba(239, 68, 68, 0.1);
+            --purple: #8b5cf6;
+            --purple-bg: rgba(139, 92, 246, 0.1);
+
+            /* Typography */
+            --font-sans: 'Inter', sans-serif;
+            --font-heading: 'Outfit', sans-serif;
+
+            /* Metrics & Layout */
+            --max-width: 1200px;
+            --nav-height: 80px;
+            --nav-height-scrolled: 64px;
+
+            /* Shadows & Transitions */
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.4);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
+            --shadow-glow: 0 0 32px var(--accent-glow);
+            --transition-fast: 0.2s ease;
+            --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Border Radius */
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 28px;
+        }
+
+        /* ==========================================================================
+           2. BASE STYLES
+           ========================================================================== */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-base);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #1f2937;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #374151;
+        }
+
+        /* Typography Base */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--font-heading);
+            color: var(--text-primary);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent);
+            transition: color var(--transition-fast);
+        }
+
+        a:hover {
+            color: var(--text-primary);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+        }
+
+        .section-padding {
+            padding: 8rem 0;
+        }
+
+        .bg-alternate {
+            background-color: var(--bg-alternate);
+        }
+
+        /* ==========================================================================
+           3. COMPONENTS (Buttons, Badges, Cards)
+           ========================================================================== */
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-sm);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all var(--transition-base);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: #fff !important;
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(59, 130, 246, 0.4);
+            filter: brightness(1.1);
+        }
+
+        .btn-secondary {
+            background: rgba(30, 30, 35, 0.95);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            border-color: var(--border-glass);
+            backdrop-filter: blur(8px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+
+        .btn-lg {
+            padding: 0.875rem 2rem;
+            font-size: 1rem;
+        }
+
+        .glass-card {
+            background: rgba(10, 10, 12, 0.92);
+            background: var(--bg-surface-glass);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            transition: all var(--transition-base);
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .badge-success {
+            background: var(--success-bg);
+            color: var(--success);
+        }
+
+        .badge-accent {
+            background: var(--accent-glow);
+            color: #60a5fa;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+        }
+
+        /* ==========================================================================
+           4. LAYOUT & SECTIONS
+           ========================================================================== */
+
+        /* --- Navigation --- */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: var(--nav-height);
+            z-index: 1000;
+            transition: all var(--transition-base);
+            border-bottom: 1px solid transparent;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-header.scrolled {
+            height: var(--nav-height-scrolled);
+            background: rgba(10, 10, 12, 0.95);
+            background: var(--bg-surface-glass);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-glass);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 clamp(1.5rem, 5vw, 2.5rem);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .logo-dot {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+        }
+
+        .nav-link {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        .hamburger {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .hamburger-line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            margin: 5px 0;
+            background: var(--text-primary);
+            transition: all var(--transition-base);
+            border-radius: 2px;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: calc(var(--nav-height) + 2rem);
+            overflow: hidden;
+        }
+
+        .hero-bg-glow {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            width: 60vw;
+            height: 60vw;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0) 60%);
+            transform: translateX(-50%);
+            z-index: -1;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .avail-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 1rem;
+            background: var(--success-bg);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 9999px;
+            color: var(--success);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
+
+        .avail-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-lead {
+            font-size: 1.125rem;
+            max-width: 540px;
+            margin-bottom: 2.5rem;
+            color: var(--text-secondary);
+        }
+
+        .hero-stats-card {
+            display: flex;
+            gap: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(20, 20, 22, 0.95);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            margin-bottom: 2.5rem;
+            max-width: fit-content;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .stat-num {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+        }
+
+        .stat-lbl {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Code Editor Window (Hero Right) */
+        .hero-profile {
+            min-width: 0;
+            width: 100%;
+        }
+
+        .code-window {
+            background: rgba(13, 17, 23, 0.98);
+            background: rgba(13, 17, 23, 0.85);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-glass);
+            overflow: hidden;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            font-family: 'Courier New', Courier, monospace;
+            backdrop-filter: blur(16px);
+            max-width: 100%;
+        }
+
+        .code-header {
+            background: rgba(22, 27, 34, 0.9);
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .code-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-dot.red {
+            background: #ff5f56;
+        }
+
+        .code-dot.yellow {
+            background: #ffbd2e;
+        }
+
+        .code-dot.green {
+            background: #27c93f;
+        }
+
+        .code-title {
+            color: #8b949e;
+            font-size: 0.8rem;
+            font-family: var(--font-sans);
+            margin: 0 auto;
+            transform: translateX(-20px);
+        }
+
+        .code-body {
+            padding: 1.5rem;
+            color: #c9d1d9;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            white-space: pre;
+            tab-size: 4;
+        }
+
+        .c-kw {
+            color: #ff7b72;
+        }
+
+        .c-func {
+            color: #d2a8ff;
+        }
+
+        .c-class {
+            color: #f0883e;
+        }
+
+        .c-str {
+            color: #a5d6ff;
+        }
+
+        .c-var {
+            color: #79c0ff;
+        }
+
+        .c-num {
+            color: #79c0ff;
+        }
+
+        .c-cmt {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        /* --- Section Headers --- */
+        .section-header {
+            margin-bottom: 4rem;
+            max-width: 600px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+        }
+
+        /* --- Expertise --- */
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .expertise-card {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-accent {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--accent);
+        }
+
+        .icon-success {
+            background: var(--success-bg);
+            color: var(--success);
+        }
+
+        .icon-warning {
+            background: var(--warning-bg);
+            color: var(--warning);
+        }
+
+        .icon-danger {
+            background: var(--danger-bg);
+            color: var(--danger);
+        }
+
+        .icon-purple {
+            background: var(--purple-bg);
+            color: var(--purple);
+        }
+
+        .expertise-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .expertise-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .feature-list li {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .feature-list i {
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-top: 4px;
+        }
+
+        /* --- Tech Stack --- */
+        .tech-wrapper {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+        }
+
+        .tech-row {
+            display: flex;
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .tech-row:last-child {
+            border-bottom: none;
+        }
+
+        .tech-category-label {
+            width: 240px;
+            padding: 1.5rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-right: 1px solid var(--border-glass);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .tech-category-label i {
+            color: var(--text-muted);
+            width: 20px;
+            text-align: center;
+        }
+
+        .tech-badges {
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .tech-badge {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+            cursor: default;
+        }
+
+        .tech-badge:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* --- Projects --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            padding: 0;
+        }
+
+        .project-thumb {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid var(--border-glass);
+        }
+
+        .project-body {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .tag-accent {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            border: none;
+        }
+
+        .tag-success {
+            background: var(--success-bg);
+            color: var(--success);
+            border: none;
+        }
+
+        .tag-warning {
+            background: var(--warning-bg);
+            color: var(--warning);
+            border: none;
+        }
+
+        .tag-danger {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border: none;
+        }
+
+        .tag-purple {
+            background: var(--purple-bg);
+            color: #a78bfa;
+            border: none;
+        }
+
+        .project-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-body p {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            flex-grow: 1;
+        }
+
+        .project-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        .pstat {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+        }
+
+        .pstat-val {
+            display: block;
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .pstat-lbl {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Experience --- */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 2px;
+            background: var(--border-glass);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 5rem;
+            padding-bottom: 4rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-surface);
+            border: 2px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            z-index: 1;
+            transition: all var(--transition-base);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .timeline-content {
+            padding: 2rem;
+        }
+
+        .timeline-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .timeline-meta h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-company {
+            font-size: 1rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            border: 1px solid var(--border-glass);
+        }
+
+        .timeline-bullets {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .timeline-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-bullets li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--border-glass);
+            transition: background var(--transition-base);
+        }
+
+        .timeline-item:hover .timeline-bullets li::before {
+            background: var(--accent);
+        }
+
+        /* --- Contact --- */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-form-card {
+            padding: 3rem;
+        }
+
+        .contact-form-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all var(--transition-fast);
+            outline: none;
+        }
+
+        textarea {
+            min-height: 160px;
+            resize: vertical;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-success {
+            display: none;
+            text-align: center;
+            padding: 3rem 2rem;
+            background: var(--success-bg);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-md);
+            color: var(--success);
+        }
+
+        .contact-info-card {
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid var(--border-glass);
+            transition: transform var(--transition-fast);
+        }
+
+        .contact-info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .contact-info-item:hover {
+            transform: translateX(8px);
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--text-muted);
+            transition: all var(--transition-fast);
+        }
+
+        .contact-info-item:hover .info-icon {
+            background: var(--accent-gradient);
+            color: #fff;
+        }
+
+        .info-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .info-val {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-glass);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            transition: all var(--transition-fast);
+        }
+
+        .social-link:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: #fff;
+            transform: translateY(-4px);
+        }
+
+        /* --- Footer --- */
+        .site-footer {
+            padding: 4rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-glass);
+            background: var(--bg-surface);
+        }
+
+        .site-footer p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* --- Animations & Utilities --- */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity var(--transition-slow), transform var(--transition-slow);
+        }
+
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-100 {
+            transition-delay: 100ms;
+        }
+
+        .delay-200 {
+            transition-delay: 200ms;
+        }
+
+        .delay-300 {
+            transition-delay: 300ms;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--bg-surface-light);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: all var(--transition-base);
+            z-index: 99;
+            box-shadow: var(--shadow-md);
+        }
+
+        .scroll-top.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .scroll-top:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        /* ==========================================================================
+           5. RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: 4rem;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-lead {
+                margin: 0 auto 2.5rem auto;
+            }
+
+            .hero-stats-card {
+                margin: 0 auto 2.5rem auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(10, 10, 12, 0.98);
+                background: var(--bg-surface-glass);
+                backdrop-filter: blur(20px);
+                border-bottom: 1px solid var(--border-glass);
+                padding: 2rem;
+                gap: 1.5rem;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path var(--transition-base);
+            }
+
+            .nav-menu.open {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .tech-row {
+                flex-direction: column;
+            }
+
+            .tech-category-label {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-glass);
+            }
+
+            .timeline::before {
+                left: 24px;
+            }
+
+            .timeline-item {
+                padding-left: 4rem;
+            }
+
+            .timeline-dot {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                left: 4px;
+                top: 4px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats-card {
+                flex-direction: column;
+                width: 100%;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .code-window .code-body {
+                padding: 1rem;
+                font-size: 0.75rem;
+            }
+
+            .project-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-form-card,
+            .contact-info-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header id="site-header" class="site-header">
+        <div class="nav-container">
+            <a href="/index.html" class="logo" aria-label="Home">Zeeshan<span class="logo-dot">.</span>dev</a>
+            <nav aria-label="Main Navigation">
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/index.html#expertise" class="nav-link">Expertise</a></li>
+                    <li><a href="/index.html#projects" class="nav-link">Projects</a></li>
+                    <li><a href="/index.html#experience" class="nav-link">Experience</a></li>
+                    <li><a href="/index.html#articles" class="nav-link" style="color: var(--accent); font-weight: 600;">Case Studies</a></li>
+                    <li><a href="/services/dedicated-laravel-developer.html" class="btn btn-primary" aria-label="Hire Dedicated Developer">Hire Dedicated Dev</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu" aria-expanded="false"
+                aria-controls="nav-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="case-study" style="padding-top: calc(var(--nav-height) + 2rem);">
+        <section style="position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center; overflow: hidden; margin-bottom: 4rem;">
+            <div style="position: absolute; inset: 0; background: url('/images/analytics-hero.png') center/cover no-repeat; opacity: 0.4; filter: blur(4px) brightness(0.7);"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, var(--bg-base));"></div>
+            <div class="container" style="position: relative; z-index: 10; text-align: center;">
+                <span class="badge badge-accent" style="margin-bottom: 1.5rem; font-size: 0.9rem; padding: 0.5rem 1rem;">Data & Analytics</span>
+                <h1 style="font-size: clamp(3rem, 6vw, 4.5rem); letter-spacing: -0.04em; margin-bottom: 1.5rem; text-shadow: 0 4px 24px rgba(0,0,0,0.8);">High-Concurrency Real-Time Analytics</h1>
+                <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; color: var(--text-primary); opacity: 0.9;">Live analytics platform serving 5K+ concurrent users with sub-50ms data latency.</p>
+            </div>
+        </section>
+
+        <div class="container" style="max-width: 1000px;">
+            <div class="glass-card" style="padding: 2.5rem; margin-bottom: 4rem; display: flex; flex-wrap: wrap; gap: 3rem; justify-content: space-between; border-top: 4px solid var(--accent);">
+                <div>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Role</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Senior Backend Engineer</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Tech Stack</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">Laravel, Vue.js, D3.js, WebSockets, Redis</p>
+                </div>
+                <div>
+                    <h3 style="color: var(--text-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem;">Compliance</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; color: var(--text-primary);">SOC2, GDPR</p>
+                </div>
+            </div>
+
+            <article style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.8;">
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-exclamation-circle" style="color: var(--warning);"></i> The Situation
+                </h2>
+                <p style="margin-bottom: 3rem;">The organization relied on an older analytics tool that refreshed via polling every 5 minutes. As user adoption skyrocketed, the heavy polling effectively DDoS-ed their own backend, crippling the database and providing executives with stale insights during critical live events. They needed true real-time visibility.</p>
+
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-bullseye" style="color: var(--accent);"></i> The Task
+                </h2>
+                <p style="margin-bottom: 3rem;">I was tasked with building a scalable, push-based analytics architecture. The system had to support up to 5,000 concurrent websocket connections, ingest high-velocity event data, and immediately push visual updates to a custom Vue.js and D3.js dashboard with under 50ms of latency.</p>
+
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-tools" style="color: var(--purple);"></i> The Action
+                </h2>
+                <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 2.5rem; margin-bottom: 3rem;">
+                    <ul class="timeline-bullets" style="padding-left: 0; gap: 2rem;">
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Event-Driven Ingestion Pipeline</strong>
+                            Created a lightweight Laravel API to ingest incoming events, immediately pushing them into Redis queues for asynchronous processing to keep the ingestion endpoints lightning fast.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Broadcasting via WebSockets</strong>
+                            Configured Laravel Echo Server to broadcast summarized metrics to subscribed client channels, dropping the legacy polling approach entirely.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Vue.js + D3.js Visualization</strong>
+                            Developed a custom dashboard interface using Vue.js for state management and D3.js for complex, animated charts that update fluidly as new websocket payloads arrive.
+                        </li>
+                        <li style="padding-left: 2rem; position: relative;">
+                            <strong style="color: var(--text-primary); font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">Aggregated Caching</strong>
+                            Utilized Redis sorted sets and hashes to maintain rolling aggregations (e.g., last 60 minutes) in memory, allowing instant dashboard loads upon initial user login.
+                        </li>
+                    </ul>
+                </div>
+
+                <h2 style="font-size: 2rem; color: var(--text-primary); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem;">
+                    <i class="fas fa-chart-line" style="color: var(--success);"></i> The Result
+                </h2>
+                <p style="margin-bottom: 2rem;">The switch from HTTP polling to WebSockets reduced backend server load by over 80%. The live dashboard now handles 5,000+ concurrent executive users flawlessly, streaming live business events with less than 50ms of data latency and maintaining a 99.8% uptime.</p>
+                
+                <div class="hero-stats-card" style="margin: 0 auto 4rem auto; padding: 2rem; background: rgba(16, 185, 129, 0.05); border: 1px solid rgba(16, 185, 129, 0.2); width: 100%; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 2rem;">
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--success); font-size: 3rem;">5K+</span>
+                        <span class="stat-lbl">Concurrents</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--success); font-size: 3rem;">&lt;50ms</span>
+                        <span class="stat-lbl">Latency</span>
+                    </div>
+                    <div class="stat-item" style="text-align: center;">
+                        <span class="stat-num" style="color: var(--success); font-size: 3rem;">-80%</span>
+                        <span class="stat-lbl">Server Load</span>
+                    </div>
+                </div>
+            </article>
+
+            <div style="text-align: center; margin-bottom: 6rem; padding-top: 4rem; border-top: 1px solid var(--border-glass);">
+                <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Need similar scaling for your platform?</h3>
+                <a href="/index.html#contact" class="btn btn-primary btn-lg" style="box-shadow: 0 0 32px rgba(59,130,246,0.4); padding: 1rem 3rem;">Let's Discuss Architecture</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© 2026 Zeeshan Ahmad · Senior PHP Laravel Developer · Fintech Architect · Full Stack Engineer</p>
+            <div class="footer-links">
+                <a href="mailto:zeeshan87135@gmail.com" aria-label="Email Zeeshan">Email</a>
+                <a href="https://linkedin.com/in/zeeshan283" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn Profile">LinkedIn</a>
+                <a href="https://github.com/Zeeshan283" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub Profile">GitHub</a>
+            </div>
+        </div>
+    </footer>
+
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+
+            hamburger.addEventListener('click', () => {
+                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                hamburger.setAttribute('aria-expanded', !isExpanded);
+                navMenu.classList.toggle('open');
+            });
+
+            // Sticky Header & Scroll Top Button
+            const header = document.getElementById('site-header');
+            const scrollTopBtn = document.getElementById('scrollTop');
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+
+                if (window.scrollY > 400) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            }, { passive: true });
+
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+
+                        // Close mobile menu if open
+                        navMenu.classList.remove('open');
+                        hamburger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            });
+
+            // Intersection Observer for Scroll Animations
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.animate-on-scroll').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Contact Form Handling
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = form.querySelector('button[type="submit"]');
+                const originalHtml = btn.innerHTML;
+
+                btn.disabled = true;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin" aria-hidden="true"></i> Sending...';
+
+                const data = new FormData(form);
+
+                fetch(form.action, {
+                    method: form.method,
+                    body: data,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        form.style.display = 'none';
+                        success.style.display = 'block';
+                    } else {
+                        btn.disabled = false;
+                        btn.innerHTML = originalHtml;
+                        alert('Oops! There was a problem submitting your form');
+                    }
+                }).catch(error => {
+                    btn.disabled = false;
+                    btn.innerHTML = originalHtml;
+                    alert('Oops! There was a problem submitting your form');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
