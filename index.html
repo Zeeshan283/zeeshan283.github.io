@@ -1399,6 +1399,82 @@
             }
         }
 
+        /* Service Card in Modal Styling */
+        .service-card {
+            display: block;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(59, 130, 246, 0.3);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-card-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(59, 130, 246, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .service-card:hover .service-card-glow {
+            opacity: 1;
+        }
+
+        .service-card h4 {
+            color: white;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover h4 {
+            color: var(--accent);
+        }
+
+        .service-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .service-card-footer p {
+            color: #a1a1aa;
+            font-size: 0.9rem;
+            margin: 0;
+            font-weight: 400;
+        }
+
+        .service-card-footer i {
+            color: var(--accent);
+            opacity: 0;
+            transform: translateX(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover .service-card-footer i {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
         @media (max-width: 480px) {
             .hero-stats-card {
                 flex-direction: column;
@@ -1429,6 +1505,103 @@
             .contact-info-card {
                 padding: 1.5rem;
             }
+        }
+
+        /* Services Modal Redesign */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 3, 5, 0.85);
+            backdrop-filter: blur(25px);
+            z-index: 2000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            padding: 2rem;
+            overflow-y: auto;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-container {
+            width: 100%;
+            max-width: 1100px;
+            background: rgba(10, 10, 12, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 32px;
+            padding: 4rem 3rem;
+            margin-top: 4rem;
+            margin-bottom: 4rem;
+            position: relative;
+            transform: scale(0.95) translateY(20px);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 50px 100px -20px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-container {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 2rem;
+            right: 2rem;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+            border-color: var(--accent);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .modal-header h2 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(to bottom, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .modal-header p {
+            color: #71717a;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .modal-container { padding: 3rem 1.5rem; border-radius: 24px; }
+            .modal-header h2 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
         }
 
         @media (prefers-reduced-motion: reduce) {
@@ -1468,7 +1641,7 @@
                     <li><a href="#projects" class="nav-link">Projects</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#articles" class="nav-link" style="color: var(--accent); font-weight: 600;">Case Studies</a></li>
-                    <li><a href="javascript:void(0)" onclick="document.getElementById('services-modal').style.display='flex'" class="nav-link">Services</a></li>
+                    <li><a href="javascript:void(0)" onclick="document.getElementById('services-modal').classList.add('active')" class="nav-link">Services</a></li>
                     <li><a href="/services/dedicated-laravel-developer.html" class="btn btn-primary" aria-label="Hire Dedicated Developer">Hire Dedicated Dev</a></li>
                 </ul>
             </nav>
@@ -1643,6 +1816,12 @@
                             <li><i class="fas fa-check" aria-hidden="true"></i> Offline-first architecture</li>
                         </ul>
                     </article>
+                </div>
+
+                <div class="animate-on-scroll" style="text-align: center; margin-top: 4rem;">
+                    <button onclick="document.getElementById('services-modal').classList.add('active')" class="btn btn-secondary btn-lg" style="padding: 1.25rem 2.5rem; border-radius: 12px; font-weight: 700;">
+                        <i class="fas fa-rocket"></i> View All Specialized Services
+                    </button>
                 </div>
             </div>
         </section>
@@ -2277,166 +2456,131 @@
     </footer>
 
     <!-- Services Overlay Modal -->
-    <div id="services-modal" style="position: fixed; inset: 0; background: rgba(3, 3, 5, 0.95); backdrop-filter: blur(20px); z-index: 1000; display: none; flex-direction: column; align-items: center; justify-content: center; padding: 2rem;">
-        <button onclick="document.getElementById('services-modal').style.display='none'" style="position: absolute; top: 2rem; right: 2rem; background: none; border: none; color: white; font-size: 2rem; cursor: pointer; opacity: 0.6; hover:opacity: 1 transition: opacity 0.2s;">&times;</button>
-        <div class="container" style="max-width: 800px; text-align: center;">
-            <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 3rem; background: linear-gradient(to right, #fff, #71717a); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Specialized Expertise</h2>
-            <div id="nav-services-list" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.5rem; text-align: left;">
+    <div id="services-modal" class="modal-overlay" onclick="if(event.target === this) this.classList.remove('active')">
+        <div class="modal-container">
+            <button class="modal-close" onclick="document.getElementById('services-modal').classList.remove('active')" aria-label="Close Modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-header">
+                <h2>Specialized Expertise</h2>
+                <p>Tailored high-performance solutions for complex backend challenges and enterprise scaling.</p>
+            </div>
+
+            <div class="services-grid">
                 <!-- NAV_DYNAMIC_LINKS_START -->
-                    <a href="/services/technical-seo-and-backend-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Technical Seo And Backend Developer</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/full-stack-laravel-react-developer-freelance.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Full Stack Laravel React Developer Freelance</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/php-backend-developer-for-mvp-launch.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Php Backend Developer For Mvp Launch</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/laravel-mvp-developer-for-hire.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Laravel Mvp Developer For Hire</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/senior-backend-developer-for-startups.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Senior Backend Developer For Startups</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/hire-react-and-laravel-developer-remote.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Hire React And Laravel Developer Remote</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/remote-laravel-10-expert.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Remote Laravel 10 Expert</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/freelance-php-backend-architect.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Freelance Php Backend Architect</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/hire-remote-senior-laravel-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Hire Remote Senior Laravel Developer</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/custom-e-commerce-backend-architect.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Custom E-commerce Backend Architect</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/managed-marketplace-backend-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Managed Marketplace Backend Developer</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/third-party-logistics-api-integration-php.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Third-party Logistics Api Integration Php</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/custom-payment-gateway-integration-developer.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Custom Payment Gateway Integration Developer</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
-                    <a href="/services/laravel-api-integration-expert.html" class="service-card" style="display: block; padding: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; text-decoration: none; transition: all 0.3s ease;">
-                    <h4 style="color: white; font-size: 1.1rem; margin-bottom: 0.5rem;">Laravel Api Integration Expert</h4>
-                    <p style="color: #a1a1aa; font-size: 0.85rem; margin: 0;">Enterprise-grade architecture & performance.</p>
-                </a>
-                <style>
-                    .service-card:hover { 
-                        background: rgba(255,255,255,0.05) !important; 
-                        border-color: rgba(99, 102, 241, 0.4) !important; 
-                        transform: translateY(-5px);
-                    }
-                </style>
+                    <a href="/services/technical-seo-and-backend-developer.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Technical Seo And Backend Developer</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/full-stack-laravel-react-developer-freelance.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Full Stack Laravel React Developer Freelance</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/php-backend-developer-for-mvp-launch.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Php Backend Developer For Mvp Launch</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/laravel-mvp-developer-for-hire.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Laravel Mvp Developer For Hire</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/senior-backend-developer-for-startups.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Senior Backend Developer For Startups</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/hire-react-and-laravel-developer-remote.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Hire React And Laravel Developer Remote</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/remote-laravel-10-expert.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Remote Laravel 10 Expert</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/freelance-php-backend-architect.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Freelance Php Backend Architect</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/hire-remote-senior-laravel-developer.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Hire Remote Senior Laravel Developer</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/custom-e-commerce-backend-architect.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Custom E-commerce Backend Architect</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/managed-marketplace-backend-developer.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Managed Marketplace Backend Developer</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/third-party-logistics-api-integration-php.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Third-party Logistics Api Integration Php</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/custom-payment-gateway-integration-developer.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Custom Payment Gateway Integration Developer</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
+                    <a href="/services/laravel-api-integration-expert.html" class="service-card group">
+                        <div class="service-card-glow"></div>
+                        <h4>Laravel Api Integration Expert</h4>
+                        <div class="service-card-footer">
+                            <p>Enterprise architecture & scaling.</p>
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </a>
                 <!-- NAV_DYNAMIC_LINKS_END -->
             </div>
         </div>
@@ -2560,8 +2704,13 @@
                     alert('Oops! There was a problem submitting your form');
                 });
             });
+
+            // Hash check for Services Modal
+            if (window.location.hash === '#services-modal') {
+                const modal = document.getElementById('services-modal');
+                if (modal) modal.classList.add('active');
+            }
         });
     </script>
 </body>
-
 </html>
