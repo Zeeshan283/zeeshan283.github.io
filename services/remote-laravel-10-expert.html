@@ -38,6 +38,10 @@
             --transition-base: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-base);
@@ -154,6 +158,11 @@
             gap: 4rem;
             align-items: center;
         }
+        
+        .hero-content, .hero-profile {
+            min-width: 0;
+            max-width: 100%;
+        }
 
         .avail-badge {
             display: inline-flex;
@@ -200,6 +209,7 @@
 
         /* Code window */
         .code-window {
+            width: 100%;
             background: rgba(13, 17, 23, 0.85);
             border-radius: var(--radius-md);
             border: 1px solid var(--border-glass);
@@ -243,6 +253,28 @@
             .site-header { height: auto; padding: 1rem 0; }
             .nav-menu { display: none; }
         }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 1.5rem; }
+            .hero-title { font-size: 2.5rem; }
+            .hero-stats-card { 
+                flex-direction: column; 
+                gap: 1.5rem; 
+                width: 100%;
+                max-width: 100%;
+                align-items: center; 
+                text-align: center;
+            }
+            .hero-actions { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .glass-card { padding: 2rem; }
+            h2 { font-size: 2rem; }
+            .code-body { font-size: 0.75rem; padding: 1rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2rem; }
+        }
     </style>
 </head>
 <body>
@@ -283,16 +315,16 @@
 
                     <div class="hero-stats-card">
                         <div class="stat-item">
-                            <span class="stat-num">10K+</span>
-                            <span class="stat-lbl">Daily transactions</span>
+                            <span class="stat-num">500ms</span>
+                            <span class="stat-lbl">Avg response time</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-num">99.9%</span>
-                            <span class="stat-lbl">System uptime</span>
+                            <span class="stat-num">24/7</span>
+                            <span class="stat-lbl">Monitored servers</span>
                         </div>
                         <div class="stat-item">
-                            <span class="stat-num">40%</span>
-                            <span class="stat-lbl">Latency reduction</span>
+                            <span class="stat-num">100k</span>
+                            <span class="stat-lbl">Concurrent users</span>
                         </div>
                     </div>
 

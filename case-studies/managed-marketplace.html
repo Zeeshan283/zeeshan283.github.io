@@ -179,6 +179,10 @@
             font-size: 16px;
         }
 
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: var(--font-sans);
             background-color: var(--bg-base);
@@ -470,6 +474,11 @@
             grid-template-columns: 1.2fr 1fr;
             gap: 4rem;
             align-items: center;
+        }
+        
+        .hero-content, .hero-profile {
+            min-width: 0;
+            max-width: 100%;
         }
 
         .avail-badge {
