@@ -24,14 +24,14 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="[USE og_title FROM JSON]">
     <meta property="og:description" content="[USE og_desc FROM JSON]">
-    <meta property="og:url" content="https://zeeshan-ahmad.dev/services/[FILENAME]">
-    <meta property="og:image" content="https://zeeshan-ahmad.dev/og-image.jpg">
+    <meta property="og:url" content="https://zeeshan283.github.io/services/[FILENAME]">
+    <meta property="og:image" content="https://zeeshan283.github.io/og-image.jpg">
     <meta property="og:site_name" content="Zeeshan Ahmad — PHP Laravel Developer & Solution Architect">
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="[USE twitter_title FROM JSON]">
     <meta name="twitter:description" content="[USE twitter_desc FROM JSON]">
-    <meta name="twitter:image" content="https://zeeshan-ahmad.dev/og-image.jpg">
+    <meta name="twitter:image" content="https://zeeshan283.github.io/og-image.jpg">
     <meta name="twitter:creator" content="@zeeshan283">
 ```
 6. Add JSON-LD right before `</head>`:
@@ -45,12 +45,12 @@
       "provider": {
         "@type": "Person",
         "name": "Zeeshan Ahmad",
-        "url": "https://zeeshan-ahmad.dev",
+        "url": "https://zeeshan283.github.io",
         "jobTitle": "Senior PHP Laravel Developer & Solution Architect"
       },
       "description": "[USE jsonld_desc FROM JSON]",
       "areaServed": ["US", "GB", "CA", "AU", "DE", "AE", "NZ", "IE"],
-      "url": "https://zeeshan-ahmad.dev/services/[FILENAME]"
+      "url": "https://zeeshan283.github.io/services/[FILENAME]"
     }
     </script>
 ```
@@ -319,7 +319,7 @@
                 "body": "Rich results in Google Search — job postings, FAQs, reviews, articles, events — are powered by Schema.org structured data correctly implemented in JSON-LD format. I implement comprehensive structured data strategies for developer portfolios, SaaS products, e-commerce sites, and B2B platforms — including Person, Service, Organization, Product, Article, and BreadcrumbList schemas. This structured data approach directly improves click-through rates and search visibility. Available remotely worldwide or open to relocation with visa sponsorship."
             }
         ],
-        "links": "<p style=\"margin-top: 1.5rem;\">\n    <a href=\"https://zeeshan-ahmad.dev\" style=\"color: var(--accent); text-decoration: underline;\">Main Portfolio</a> &nbsp;|&nbsp;\n    <a href=\"/services/dedicated-laravel-developer.html\" style=\"color: var(--accent); text-decoration: underline;\">Learn about dedicated Laravel developer services</a>\n</p>",
+        "links": "<p style=\"margin-top: 1.5rem;\">\n    <a href=\"https://zeeshan283.github.io\" style=\"color: var(--accent); text-decoration: underline;\">Main Portfolio</a> &nbsp;|&nbsp;\n    <a href=\"/services/dedicated-laravel-developer.html\" style=\"color: var(--accent); text-decoration: underline;\">Learn about dedicated Laravel developer services</a>\n</p>",
         "jsonld_name": "Technical SEO & PHP Laravel Backend Development",
         "jsonld_desc": "PHP Laravel backend developer specializing in technical SEO, Core Web Vitals optimization, Schema.org structured data, and server-side SEO architecture."
     },
